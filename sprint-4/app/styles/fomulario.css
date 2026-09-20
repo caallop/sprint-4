@@ -1,0 +1,15 @@
+.formulario-caixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-inline: 0;
+
+}
+
+.formulario {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background: radial-gradient(circle at center, var(--degrade-second) 5%, var(--degrade-third) 10%, transparent 80%);
+    padding: 40px;
+}
+
