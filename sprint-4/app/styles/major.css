@@ -1,0 +1,27 @@
+:root {
+    --principal-color: #6e8df3d3;
+    --degrade-first: #6598f8;
+    --degrade-second: #8EB9FC;
+    --degrade-third: #8EB9FC;
+    --cinza: #555;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, serif;
+}
+
+body {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    padding-inline: 2rem;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+

@@ -1,0 +1,34 @@
+/* ==========================================
+   ESCOPO GLOBAL E VARIÁVEIS
+   (Onde definimos as cores e avisamos pro navegador quem manda nas margens)
+========================================== */
+@import url("./styles/major.css");
+@import url("./styles/navbar.css");
+@import url("./styles/main.css");
+@import url("./styles/carrosel.css");
+@import url("./styles/footer.css");
+/* ==========================================
+   COMPONENTE: HEADER / NAVBAR
+   (A barra superior inteira, do logo aos links)
+========================================== */
+
+/* ==========================================
+   COMPONENTE: MAIN / ESTRUTURA BASE DA PÁGINA
+========================================== */
+
+
+/* ==========================================
+   COMPONENTE: CARROSSEL
+   (A mágica do CSS puro com input radio escondido. Respeito máximo!)
+========================================== */
+
+/* ==========================================
+   COMPONENTE: PÚBLICO ALVO / SOLUÇÃO
+   (A parte com o grid maroto e o padding místico)
+========================================== */
+
+
+/* ==========================================
+   COMPONENTE: FOOTER GERAL
+   (A base da página e tudo que vai dentro dela)
+========================================== */
