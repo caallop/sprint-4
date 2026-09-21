@@ -109,12 +109,7 @@ main {
     margin-bottom: 3rem;
 }
 
-.texto-descricao {
-    font-style: italic;
-    font-weight: bolder;
-    font-size: 1.45rem;
-    color: #555555cf;
-}
+
 
 .texto-metrica {
     font-size: 1.45rem;

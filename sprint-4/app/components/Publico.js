@@ -31,7 +31,7 @@ export default function Publico() {
           <div className="publico-coluna-direita">
             <div className="publico-card card-social">
               <div className="card-conteudo">
-                <p className="texto-descricao">
+                <p className="italic font-bold text-[1.45rem] text-[#555555cf]">
                   Mais segurança, autonomia e confiança para pessoas surdas ou
                   com deficiência auditiva explorarem o mundo.{" "}
                 </p>
