@@ -9,7 +9,7 @@ export default function Publico() {
             <div className="forma-decorativa"></div>
 
             <div className="card-conteudo">
-              <h1 className="titulo-principal">
+              <h1 className="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-3xl">
                 O radar visual para o seu dia a dia
               </h1>
 

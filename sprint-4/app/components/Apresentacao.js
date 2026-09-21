@@ -5,7 +5,7 @@ export default function Apresentacao() {
     <div className="principal container">
       <div className="apresentation">
         <h1 className="mb-4 text-4xl font-bold tracking-tight text-heading md:text-5xl lg:text-3xl">Ouvir com os Olhos: O Som do Mundo Ganha Forma.</h1>
-        <h2 className="italic font-bold text-[1.45rem] text-[#555555cf]">
+        <h2 className="subtexto-apresentacao italic font-bold text-[1.45rem] text-[#555555cf]">
           Transforme os sons ao seu redor em avisos visuais simples na tela do
           seu celular ou óculos inteligente. Mais segurança e independência no
           seu dia a dia
