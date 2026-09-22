@@ -8,7 +8,6 @@ export default function FormularioApoio() {
   const [mensagem, setMensagem] = useState("");
   const [erro, setErro] = useState("");
 
-  // Verifica o localStorage assim que a página carrega (F5)
   useEffect(() => {
     const usuarioSalvo = localStorage.getItem("usuarioApoio");
     if (usuarioSalvo) {
@@ -48,7 +47,6 @@ export default function FormularioApoio() {
     localStorage.setItem("usuarioApoio", JSON.stringify({ nome, senha }));
   };
 
-  // Função para o botão "Excluir"
   const handleExcluir = () => {
     localStorage.removeItem("usuarioApoio");
     setNome("");
@@ -81,7 +79,7 @@ export default function FormularioApoio() {
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               className="campo border-2 mb-2 p-1 border-black-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Digite seu nome"
+              placeholder="Nome"
             />
           </div>
 
@@ -98,7 +96,7 @@ export default function FormularioApoio() {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               className="campo mb-2 p-1 border-2 border-black-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent "
-              placeholder="Sua senha secreta"
+              placeholder="Senha"
             />
           </div>
 
@@ -118,7 +116,6 @@ export default function FormularioApoio() {
           )}
 
           {mensagem && (
-            /* Adicionado flex, justify-between e items-center para alinhar o texto e o botão */
             <div className="p-3 bg-green-100 text-green-700 font-semibold rounded border border-green-200 flex justify-between items-center">
               <span>{mensagem}</span>
               <button
