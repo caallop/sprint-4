@@ -1,12 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function FormularioApoio() {
   const [nome, setNome] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagem, setMensagem] = useState("");
   const [erro, setErro] = useState("");
+
+  // Verifica o localStorage assim que a página carrega (F5)
+  useEffect(() => {
+    const usuarioSalvo = localStorage.getItem("usuarioApoio");
+    if (usuarioSalvo) {
+      const dados = JSON.parse(usuarioSalvo);
+      setNome(dados.nome);
+      setSenha(dados.senha);
+      setMensagem(`O usuário ${dados.nome} logou!`);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,23 +40,38 @@ export default function FormularioApoio() {
     }
 
     const numeroAleatorio = Math.floor(Math.random() * 1000) + 1;
-    setMensagem(
-      `Bem vindo ${nome}! Você é o ${numeroAleatorio}º a apoiar nossa iniciativa!`,
-    );
+    const msgSucesso = `Bem vindo ${nome}! Você é o ${numeroAleatorio}º a apoiar nossa iniciativa!`;
+    setNome("");
+    setSenha("");
+    setMensagem(msgSucesso);
+
+    localStorage.setItem("usuarioApoio", JSON.stringify({ nome, senha }));
+  };
+
+  // Função para o botão "Excluir"
+  const handleExcluir = () => {
+    localStorage.removeItem("usuarioApoio");
+    setNome("");
+    setSenha("");
+    setMensagem("");
+    setErro("");
   };
 
   return (
-    <div className=" formulario-caixa container">
+    <div className="formulario-caixa container">
       <div className="rounded formulario w-full">
         <h2 className="text-4xl font-bold mb-5 text-gray-800 text-center">
           Apoie a Iniciativa
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4 flex-col content-center">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-4 flex-col content-center"
+        >
           <div>
             <label
               htmlFor="nome"
-              className="block mb-1 text-lg font-medium  font-bold"
+              className="block mb-1 text-lg font-medium font-bold"
             >
               Nome:
             </label>
@@ -54,7 +80,7 @@ export default function FormularioApoio() {
               type="text"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              className="campo border-2 mb-2 p-1 border-black-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent "
+              className="campo border-2 mb-2 p-1 border-black-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="Digite seu nome"
             />
           </div>
@@ -62,7 +88,7 @@ export default function FormularioApoio() {
           <div>
             <label
               htmlFor="senha"
-              className="block mb-1 text-lg font-medium  font-bold"
+              className="block mb-1 text-lg font-medium font-bold"
             >
               Senha:
             </label>
@@ -83,16 +109,24 @@ export default function FormularioApoio() {
             Submit
           </button>
         </form>
-        <div>
+
+        <div className="mt-4">
           {erro && (
-            <div className="mt-4 p-3 bg-red-100 text-red-700 font-semibold rounded border border-red-200">
+            <div className="p-3 bg-red-100 text-red-700 font-semibold rounded border border-red-200">
               {erro}
             </div>
           )}
 
           {mensagem && (
-            <div className="mt-4 p-3 bg-green-100 text-green-700 font-semibold rounded border border-green-200 text-center">
-              {mensagem}
+            /* Adicionado flex, justify-between e items-center para alinhar o texto e o botão */
+            <div className="p-3 bg-green-100 text-green-700 font-semibold rounded border border-green-200 flex justify-between items-center">
+              <span>{mensagem}</span>
+              <button
+                onClick={handleExcluir}
+                className="ml-4 px-3 py-1 bg-red-500 hover:bg-red-600 text-white text-sm rounded font-bold transition-colors"
+              >
+                Excluir
+              </button>
             </div>
           )}
         </div>

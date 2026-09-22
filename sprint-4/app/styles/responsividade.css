@@ -15,12 +15,6 @@
         flex-direction: column;
     }
 
-    .contact-forms {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
     .principal p {
         margin: 10px 0 0 0;
     }

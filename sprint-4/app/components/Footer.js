@@ -44,19 +44,6 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="contact container">
-        <div className="contact-text">
-          <h2>Ficou interessado?</h2>
-          <h3>inscreva-se para mais informações exclusivas no Gmail</h3>
-        </div>
-
-        <form className="contact-forms">
-          <input id="test" type="email" placeholder="Gmail" />
-          <input type="text" placeholder="Nome" />
-          <button type="submit">Enviar</button>
-        </form>
-      </div>
-
       <div className="container">
         <div id="contato">
           <a href="#" className="fi">
