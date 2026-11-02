@@ -1,94 +1,77 @@
-# RALUGUVA
+# RALUGUVA — Sprint 4
 
 ## Sobre o projeto
 
-O RALUGUVA é uma aplicação web desenvolvida com o objetivo de transformar sons do ambiente em informações visuais, facilitando a percepção de sons por meio de uma interface visual.
+O RALUGUVA transforma sons do ambiente em informações visuais para apoiar pessoas surdas ou com deficiência auditiva. Nesta Sprint 4, o projeto evolui com React e Next.js, mantendo a proposta das etapas anteriores.
 
-A partir da proposta da JOVI, criamos um sistema de "ver sons", utilizando microfone e câmera, pensado principalmente para pessoas com algum nível de deficiencia auditiva, ou até para quem quiser saber o que seu microfone está "pegando".
+## Tecnologias
 
-## Tecnologias utilizadas
-
-* React
-* Next.js
-* JavaScript
-* HTML/JSX
-* CSS
-* Git e GitHub
-* Vercel
+- React e Next.js
+- JavaScript e JSX
+- CSS
+- Google Identity Services para exibir o nome da conta Google
+- MockAPI para simular dados de alertas sonoros
+- GitHub e Vercel
 
 ## Estrutura do projeto
 
-A aplicação foi dividida em componentes funcionais, seguindo uma estrutura de componente pai para componentes filhos:
-
-* `Navbar` — cabeçalho e navegação da aplicação.
-* `Main` — conteúdo principal e funcionalidades do projeto.
-* `Footer` — rodapé e links das redes sociais.
-* `Home` — componente principal responsável por organizar os demais componentes.
+- `sprint-4/app/components`: componentes da navegação, apresentação, público, formulário, rodapé e demonstração de alertas.
+- `sprint-4/app/hooks`: hooks personalizados `useGoogle` e `useAlertas`.
+- `sprint-4/app/styles`: estilos da aplicação e regras de responsividade.
+- `sprint-4/public`: imagens e demais arquivos públicos.
 
 ## Funcionalidades
 
-O projeto possui as seguintes funcionalidades:
+- Página responsiva para Desktop, Tablet e Mobile.
+- Login com Google que exibe o nome da conta e um número de apoiador gerado aleatoriamente. Esses dados ficam apenas na página e não são salvos no `localStorage`.
+- Demonstração de alerta sonoro no cartão “O radar visual para o seu dia a dia”. O botão busca os registros da MockAPI e seleciona um para mostrar o tipo de alerta, os decibéis e a direção.
+- Os alertas são simulados e não representam uma leitura real do microfone.
 
-* Sistema de login;
-* Identificação do usuário logado;
-* Armazenamento de informações utilizando `localStorage`;
-* Ativação e desativação do flash;
-* Timer para tirar foto;
-* Simulação de captura de foto;
-* Modo de acessibilidade;
-* Exibição de níveis de som em decibéis;
-* Geração de valores aleatórios utilizando `Math.random()` e `Math.floor()`;
-* Notificações visuais dentro da interface.
+## Configurar o login com Google
 
-## Como instalar
+Crie um arquivo `.env.local` dentro de `sprint-4` — no mesmo nível do `package.json` — com o Client ID OAuth da aplicação Web:
 
-### 1. Pré-requisitos
-
-É necessário possuir instalado:
-
-* Node.js
-* npm
-
-### 2. Instalação
-
-Após baixar ou clonar o projeto, abra o terminal na pasta do projeto e execute:
-
-```bash
-npm install
+```env
+NEXT_PUBLIC_GOOGLE_CLIENT_ID=seu-client-id.apps.googleusercontent.com
 ```
 
-Esse comando instala todas as dependências necessárias para executar a aplicação.
+Cadastre `http://localhost:3000` como origem JavaScript autorizada no Google Cloud. Se o app OAuth estiver em modo de teste, adicione as contas Google que serão usadas nos testes como usuários de teste.
 
-## Como executar
+## API de alertas
 
-Após instalar as dependências, execute:
+A demonstração consome a API:
+
+`https://6ae7f6a856b2ee1e5440afdc.mockapi.io/alertas`
+
+Cada registro possui `codigoSom`, `decibeis`, `direcao` e `id`. O código do som é convertido na interface em Campainha, Buzina, Alarme ou Sirene; as direções em inglês são mostradas em português.
+
+## Instalar e executar
+
+É necessário ter Node.js e npm instalados. No terminal, entre na pasta do projeto Next.js:
 
 ```bash
+cd sprint-4
+npm install
 npm run dev
 ```
 
-Depois, abra o endereço indicado pelo terminal, normalmente:
+Abra `http://localhost:3000` no navegador. Para criar a versão de produção local:
 
-```text
-http://localhost:3000
+```bash
+npm run build
+npm run start
 ```
 
-## Usuário para teste
-
-O login não exige cadastro prévio. Para testar, basta informar qualquer nome de usuário e senha.
-
-## Utilização de Inteligência Artificial
+## Uso de inteligência artificial
 
 A Inteligência Artificial foi usada, principalmente para resolver problemas e tirar dúvidas do codigo. Toda a implementação e alterção direta do codigo foi feita pela equipe.
 
-## GitHub
+## Repositório e deploy
 
-Repositório do projeto:
+- GitHub: [sprint-4-webdev-front-end](https://github.com/caallop/sprint-4-webdev-front-end)
 
-https://github.com/caallop/sprint-3-webdev
+- Vercel: https://sprint-4-azure.vercel.app/
 
-## Deploy
+## Integrantes
 
-Aplicação publicada na Vercel:
-
-https://sprint-3-webdev-nine.vercel.app/
+Os nomes completos e RMs dos integrantes estão no arquivo `integrantes.txt`.
