@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RALUGUVA
 
-## Getting Started
+Aplicação Next.js do projeto RALUGUVA. A página apresenta a solução e permite que um visitante escolha uma conta Google para exibir o nome retornado durante a sessão atual da página.
 
-First, run the development server:
+## Requisitos
+
+- Node.js
+- npm
+- Client ID OAuth 2.0 configurado no Google Cloud para aplicação Web
+
+## Configurar o login com Google
+
+1. No Google Cloud Console, crie um Client ID OAuth do tipo **Aplicativo da Web**.
+2. Cadastre as origens autorizadas usadas no desenvolvimento e no deploy, por exemplo `http://localhost:3000` e o domínio da aplicação na Vercel.
+3. Copie `.env.example` para `.env.local` e preencha `NEXT_PUBLIC_GOOGLE_CLIENT_ID` com o Client ID criado.
+4. Configure a mesma variável de ambiente nas configurações do projeto na Vercel.
+
+O hook personalizado `useGoogle` integra o botão do Google Identity Services, lê somente o campo `name` da credencial retornada e gera um número aleatório de apoiador. Nome e número ficam no estado da página e não são gravados no `localStorage`. Esse fluxo exibe os dados escolhidos; ainda não cria uma sessão segura nem protege rotas privadas.
+
+## Demonstração de alertas
+
+O cartão "O radar visual para o seu dia a dia" consulta a API `https://6ae7f6a856b2ee1e5440afdc.mockapi.io/alertas`. O hook `useAlertas` carrega os registros com `useEffect`; ao clicar em "Simular alerta sonoro", um registro é escolhido aleatoriamente e exibido no mesmo cartão. O código do som é apresentado como Campainha, Buzina, Alarme ou Sirene; as direções em inglês são traduzidas para português. Os dados são simulados e não representam uma medição real do microfone.
+
+## Instalar e executar
+
+Na pasta `sprint-4`, execute:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra `http://localhost:3000` no navegador.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Build de produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run start
+```

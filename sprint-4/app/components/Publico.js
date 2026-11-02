@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SimuladorAlerta from "./SimuladorAlerta";
 
 export default function Publico() {
   return (
@@ -25,6 +26,8 @@ export default function Publico() {
                 Para esse público, a solução é vital porque devolve a autonomia
                 e aumenta a segurança nas ruas, em casa ou no trabalho.
               </p>
+
+              <SimuladorAlerta />
             </div>
           </div>
 
