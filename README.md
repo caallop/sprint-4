@@ -2,16 +2,16 @@
 
 ## Sobre o projeto
 
-O RALUGUVA transforma sons do ambiente em informações visuais para apoiar pessoas surdas ou com deficiência auditiva. Nesta Sprint 4, o projeto evolui com React e Next.js, mantendo a proposta das etapas anteriores.
-
+O RALUGUVA transforma sons do ambiente em informações visuais para apoiar pessoas surdas ou com deficiência auditiva.
 ## Tecnologias
 
 - React e Next.js
 - JavaScript e JSX
 - CSS
-- Google Identity Services para exibir o nome da conta Google
-- MockAPI para simular dados de alertas sonoros
-- GitHub e Vercel
+- Google Identity Services
+- MockAPI
+- GitHub
+-  Vercel
 
 ## Estrutura do projeto
 
@@ -50,16 +50,15 @@ Cada registro possui `codigoSom`, `decibeis`, `direcao` e `id`. O código do som
 É necessário ter Node.js e npm instalados. No terminal, entre na pasta do projeto Next.js:
 
 ```bash
-cd sprint-4
 npm install
+cd sprint-4
 npm run dev
 ```
 
 Abra `http://localhost:3000` no navegador. Para criar a versão de produção local:
 
 ```bash
-npm run build
-npm run start
+npm run dev
 ```
 
 ## Uso de inteligência artificial
