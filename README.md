@@ -74,3 +74,8 @@ A Inteligência Artificial foi usada, principalmente para resolver problemas e t
 ## Integrantes
 
 Os nomes completos e RMs dos integrantes estão no arquivo `integrantes.txt`.
+
+
+comentario exclusivo para o prof de web-dev:
+não foi implementado a função de rotas particulares, visto a falta de necessecidade, pois é uma pagina unica, aonde poderia ter sido feito o login e depois a pagina, que nem na apostila, porém achamos que isso quebraria parte da experiencia HTML e CSS do projeto.
+espero que de um descontinho :)
